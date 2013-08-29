@@ -1,0 +1,35 @@
+{
+    "name": "redis-pubsub"
+  , "version": "0.0.1"
+  , "description": "A simple Redis Publish-Subscribe wrapper"
+  , "main": "index"
+  , "scripts": {
+        "test": "make test"
+    }
+  , "repository": {
+        "type": "git"
+      , "url": "git://github.com/pwaleczek/redis-pub-sub.git"
+    }
+  , "keywords": [
+         "redis"
+       , "pub"
+       , "sub"
+       , "pubsub"
+       , "pub/sub"
+    ]
+  , "author": {
+        "name": "Paweł Waleczek"
+      , "email": "pawel@thisismyasterisk.org"
+    }
+  , "license": "MIT"
+  , "bugs": {
+        "url": "https://github.com/pwaleczek/redis-pub-sub/issues"
+    }
+  , "dependencies": {
+        "redis": "~0.8.4"
+    }
+  , "devDependencies": {
+        "mocha": "~1.12.0"
+      , "should": "~1.2.2"
+    }
+}
