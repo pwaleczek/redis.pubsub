@@ -1,8 +1,85 @@
-# Node.js Redis Pub/Sub wrapper
+# Redis.PubSub [![Build Status](https://travis-ci.org/pwaleczek/redis.pubsub.png)](https://travis-ci.org/pwaleczek/redis.pubsub) [![NPM version](https://badge.fury.io/js/redis.pubsub.png)](http://badge.fury.io/js/redis.pubsub)
 
-[![Build Status](https://travis-ci.org/pwaleczek/redis.pubsub.png)](https://travis-ci.org/pwaleczek/redis.pubsub)
+Node.js wrapper for Redis' Publish - Subscribe messageing pattern.
 
-### TODO: Write this readme
+  > Tested with node 0.10.15
+
+##Install
+  ```bash
+  $ npm install redis.pubsub --save
+  ```
+  > Test
+
+  ```bash
+  $ make test
+  ```
+
+## Usage
+
+### Include in the project
+```javascript
+  var redisPubSub = require('redis.pubsub')([[config], options])
+```
+  * __config__: `{ port || 6379, host || 'localhost', pass }`. `port`, `host` and `password` to connect to a Redis server.
+  * __options__: Accepts all options for Redis' `createClient()` [method](http://github.com/mranney/node_redis#rediscreateclientport-host-options).
+
+---
+### Create an instance
+```javascript
+  // listener only
+  var Sub = new redisPubSub.Sub()
+
+  // emiter only
+  var Pub = new redisPubSub.Pub()
+
+  // instance can be a Publisher and Subscriber (emit and listen)
+  var PubSub = new redisPubSub.PubSub()
+```
+---
+### Set up an emiter
+```javascript
+  Pub.emit(channel, message)
+  // or
+  PubSub.emit(channel, message)
+```
+  * __channel__: Name of a publishing channel, e. g. `drain` or `drain.pipe`
+  * __message__: Object to be published. Goes through `JSON.stringify`.
+
+---
+### Set up a listener
+```javascript
+  Sub.on(channel, message [, pattern])
+  // or
+  PubSub.on(channel, message [, pattern])
+```
+  * __channel__: Channel or channel pattern ending with a `*`, to listen for messages, e. g. `drain` or `drain.*`.
+  * __message__: Captured message object. Coes through `JSON.parse`.
+  * __pattern__: Pattern on name of a channel from which message was recieved.
+
+---
+### Disable a listener
+```javascript
+  Sub.off(channel)
+  // or
+  PubSub.off(channel)
+```
+  * __channel__: Pattern or name of a channel to stop listenning on.
+
+---
+### Destroy the instance and Redis client
+```javascript
+  Pub.cleanUp()
+  // or
+  Sub.cleanUp()
+  // or
+  PubSub.cleanUp()
+```
+
+##Example
+
+```javascript
+  // TODO: write this
+```
 
 ##License
 
