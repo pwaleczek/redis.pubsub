@@ -18,7 +18,7 @@ Node.js wrapper for Redis' Publish - Subscribe messageing pattern.
 
 ### Include in the project
 ```javascript
-  var redisPubSub = require('redis.pubsub')([[config], options])
+  var redisPubSub = require('redis.pubsub')([config [, options]])
 ```
   * __config__: `{ port || 6379, host || 'localhost', pass }`. `port`, `host` and `password` to connect to a Redis server.
   * __options__: Accepts all options for Redis' `createClient()` [method](http://github.com/mranney/node_redis#rediscreateclientport-host-options).
