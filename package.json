@@ -1,6 +1,6 @@
 {
   "name": "redis.pubsub",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A simple Redis Publish-Subscribe wrapper",
   "main": "index",
   "scripts": {
@@ -23,7 +23,8 @@
     "url": "https://github.com/pwaleczek/redis.pubsub/issues"
   },
   "dependencies": {
-    "redis": "~0.8.4"
+    "redis": "~0.8.4",
+    "common": "~0.2.5"
   },
   "devDependencies": {
     "mocha": "~1.12.0",
