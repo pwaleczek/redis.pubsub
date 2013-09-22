@@ -1,6 +1,6 @@
 {
   "name": "redis.pubsub",
-  "version": "0.1.1",
+  "version": "0.1.5",
   "description": "A simple Redis Publish-Subscribe wrapper",
   "main": "index",
   "scripts": {
@@ -15,7 +15,8 @@
     "pub",
     "sub",
     "pubsub",
-    "pub/sub"
+    "pub/sub",
+    "querify"
   ],
   "author": "Paweł Waleczek <pawel@thisismyasterisk.org>",
   "license": "MIT",

@@ -1,5 +1,7 @@
 # Redis.PubSub [![Build Status](https://travis-ci.org/pwaleczek/redis.pubsub.png)](https://travis-ci.org/pwaleczek/redis.pubsub) [![NPM version](https://badge.fury.io/js/redis.pubsub.png)](http://badge.fury.io/js/redis.pubsub)
 
+## Current master (v0.1.5-pre) is WIP, no docs, no proper tests. Stick with v0.1.0
+
 Node.js wrapper for Redis' Publish - Subscribe messageing pattern.
 
   > Tested with node 0.10.15
