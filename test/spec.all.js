@@ -27,11 +27,10 @@ describe('Redis Pub/Sub', function () {
 
         //PubSub.off(channelName)
         //PubSub.cleanUp()
-        //done()
+        done()
       })
 
       PubSub.emit(channelName, messageObject)
-      PubSub.emit(channelName, {})
 
     })
 

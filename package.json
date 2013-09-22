@@ -24,7 +24,8 @@
   },
   "dependencies": {
     "redis": "~0.8.4",
-    "common": "~0.2.5"
+    "common": "~0.2.5",
+    "querify": "~0.4.1"
   },
   "devDependencies": {
     "mocha": "~1.12.0",
