@@ -1,7 +1,7 @@
 {
   "name": "redis.pubsub",
-  "version": "0.1.5",
-  "description": "A simple Redis Publish-Subscribe wrapper",
+  "version": "0.1.6",
+  "description": "A Redis Publish-Subscribe wrapper, with message queries",
   "main": "index",
   "scripts": {
     "test": "make test"
