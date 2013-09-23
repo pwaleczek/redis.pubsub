@@ -7,6 +7,9 @@ Supports message filtering and more.
 
 ##Changelog
 
+###v1.0.0:
+  * correct version numbering and some fixes
+
 ###v0.1.6:
   * arrays can now be processed with queries
 
@@ -62,8 +65,8 @@ Supports message filtering and more.
   PubSub.emit(channel, message)
 ```
 
-  * __channel__: Name of a publishing channel, e. g. `drain` or `drain.pipe` | defaults to '*'
-  * __message__: Object to be published. Goes through `JSON.stringify`.
+  * __channel__: Name of a publishing channel, e. g. `drain` or `drain.pipe` | defaults to `*`
+  * __message__: Object to be published. Strings do not apply!.
 
 ---
 ### Set up a listener
@@ -88,8 +91,8 @@ You can unsubscribe by:
 ```javascript
   // calling a reference object from when subscribing
   sub([callback])
-  // or
-  // using the reference as a param (single or multiple as an array)
+
+  // or using the reference as a param (single or multiple as an array)
   PubSub.off(target[, callback])
 ```
 
@@ -97,7 +100,7 @@ You can unsubscribe by:
   * __callback__: optional
 
 ---
-### Clear all queue filters
+### Clear all queue filters aka reset
 
 ```javascript
   PubSub.clear([callback])
