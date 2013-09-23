@@ -1,15 +1,21 @@
 # Redis.PubSub [![Build Status](https://travis-ci.org/pwaleczek/redis.pubsub.png)](https://travis-ci.org/pwaleczek/redis.pubsub) [![NPM version](https://badge.fury.io/js/redis.pubsub.png)](http://badge.fury.io/js/redis.pubsub)
 
 Node.js wrapper for Redis' Publish - Subscribe messageing pattern.
+Supports message filtering and more.
 
   > Tested with node 0.10.15
 
 ##Changelog
 
-###Notable changes since v0.1.0
+###v0.1.6:
+  * arrays can now be processed with queries
+
+###v0.1.5: Notable changes since v0.1.0
   * __New way to create instances__
   * The __.on__ method takes different parameters
   * Filtering messages is possible using mongoDB-like queries or regular expressions
+
+###v0.1.0: Initial forking release
 
 ##Install
 
@@ -56,7 +62,7 @@ Node.js wrapper for Redis' Publish - Subscribe messageing pattern.
   PubSub.emit(channel, message)
 ```
 
-  * __channel__: Name of a publishing channel, e. g. `drain` or `drain.pipe`
+  * __channel__: Name of a publishing channel, e. g. `drain` or `drain.pipe` | defaults to '*'
   * __message__: Object to be published. Goes through `JSON.stringify`.
 
 ---
@@ -72,7 +78,7 @@ Node.js wrapper for Redis' Publish - Subscribe messageing pattern.
   * __filter__: filter returned data by displaying only selected keys
   * __callback__: function to process returned data (callback's first param)
 
-  function returns reference to subscription.
+  Function returns reference to subscription.
 
 ---
 ### Disable a listener
@@ -81,17 +87,20 @@ You can unsubscribe by:
 
 ```javascript
   // calling a reference object from when subscribing
-  sub()
+  sub([callback])
   // or
   // using the reference as a param (single or multiple as an array)
-  PubSub.off([sub1, sub2])
+  PubSub.off(target[, callback])
 ```
+
+  * __target__: reference to a subscription or an array of subscription objects
+  * __callback__: optional
 
 ---
 ### Clear all queue filters
 
 ```javascript
-  PubSub.clear(callback)
+  PubSub.clear([callback])
 ```
 
   * __callback__: optional
@@ -102,7 +111,7 @@ You can unsubscribe by:
 Method removes all subscriptions, clears the filter queue and removes the Redis client.
 
 ```javascript
-  PubSub.cleanUp(callback)
+  PubSub.cleanUp([callback])
 ```
 
   * __callback__: optional
