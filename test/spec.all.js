@@ -21,9 +21,7 @@ describe('Redis Pub/Sub', function () {
       data.should.be.a('object')
       data.key.should.eql('test message')
 
-      console.log(PubSub.queue)
       sub() // unsubscribe
-      console.log(PubSub.queue)
 
       done()
     })
@@ -41,21 +39,23 @@ describe('Redis Pub/Sub', function () {
           , { age: 10, key: 'other message' }
           , { age: 21, key: 'none'}
         ]
-    PubSub.on({ $has: ['key', 'age'], age: {$gt: 18}}, {}, function (data) {
-      // channel.should.eql(channelName)
-      // pattern.should.eql(channelPattern)
-      // message.should.be.a('object')
-      // message.key.should.eql('test message')
+    var sub = PubSub.on({ $has: ['key', 'age'], age: {$gt: 18}}, {}, function (data) {
+      sub()
 
-      // PubSub.off(channelPattern)
-
-      // PubSub.cleanUp()
-      console.log(data)
-       done()
+      done()
     })
-      messageObject.forEach(function (message) {
-        PubSub.emit(channelName, message)
-      })
-
+    // send multiple messages
+    messageObject.forEach(function (message) {
+      PubSub.emit(channelName, message)
+    })
   })
+
+  it('should be able to remove all filter queue objects, aka unsubscribe', function (done) {
+    PubSub.clear(done)
+  })
+
+  it('should be able to clean up', function (done) {
+    PubSub.cleanUp(done)
+  })
+
 })
