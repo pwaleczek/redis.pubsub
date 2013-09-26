@@ -7,6 +7,9 @@ Supports message filtering and more.
 
 ##Changelog
 
+###v1.0.1:
+  * added channel and pattern info to be trnsfered along with data as extra parameters
+
 ###v1.0.0:
   * correct version numbering and some fixes
 
@@ -72,14 +75,14 @@ Supports message filtering and more.
 ### Set up a listener
 
 ```javascript
-  var sub = PubSub.on(query, filter callback = function (data) {
+  var sub = PubSub.on(query, filter, callback = function (data, channel, pattern) {
     // process your data here
   })
 ```
   * __query__: query to filter messages. Supports mongoDB-like queries and regular expressions.
   TODO: queries description
   * __filter__: filter returned data by displaying only selected keys
-  * __callback__: function to process returned data (callback's first param)
+  * __callback__: function to process returned `data` sent on a specific `channel` and captured by a listener `pattern`
 
   Function returns reference to subscription.
 
