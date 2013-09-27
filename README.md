@@ -7,6 +7,10 @@ Supports message filtering and more.
 
 ##Changelog
 
+###v1.0.2:
+  * Fix - channel was not passed by the event callback
+  * TODO: add more proper tests and perform benchmarking
+
 ###v1.0.1:
   * added channel and pattern info to be trnsfered along with data as extra parameters
 
