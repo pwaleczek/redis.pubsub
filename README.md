@@ -7,6 +7,9 @@ Supports message filtering and more.
 
 ##Changelog
 
+###v1.1.0:
+  * added `channel` and `pattern` to the message object, for easier querying.
+
 ###v1.0.2:
   * Fix - channel was not passed by the event callback
   * TODO: add more proper tests and perform benchmarking
@@ -83,6 +86,7 @@ Supports message filtering and more.
     // process your data here
   })
 ```
+
   * __query__: query to filter messages. Supports mongoDB-like queries and regular expressions.
   TODO: queries description
   * __filter__: filter returned data by displaying only selected keys

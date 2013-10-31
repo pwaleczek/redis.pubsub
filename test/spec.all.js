@@ -1,5 +1,5 @@
 var should = require('should')
-  , redisPubSub = require('../index')(/*local*/)
+  , redisPubSub = require('../lib/redis-pub-sub')(/*local*/)
   , PubSub
 
 describe('Redis Pub/Sub', function () {
@@ -66,6 +66,34 @@ describe('Redis Pub/Sub', function () {
       sub(done())
     })
     PubSub.emit(channelName, messageObject)
+
+  })
+
+  it('should be fast with simple object messages', function (done) {
+    this.timeout(10 * 1000)
+
+    var ITERATIONS = 100000
+      , counter = 0
+      , start
+      , end
+
+    var channelName = 'spec.test'
+      , messageObject = { key: 'test message' }
+
+    var sub = PubSub.on({}, {}, function (data) {
+      counter++
+
+      if (counter >= ITERATIONS) {
+        sub(done()) // unsubscribe
+      }
+
+    })
+
+    // setTimeout(function() {
+      for (var i = 0; i < ITERATIONS; i++) {
+          PubSub.emit(channelName, {key: 'test message', i: i})
+      }
+    // }, 1000)
 
   })
 
