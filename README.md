@@ -7,6 +7,12 @@ Supports message filtering and more.
 
 ##Changelog
 
+###v1.1.2:
+  * removed pattern from final message object
+
+###v1.1.1:
+  * simple mode for using raw redis Pub/Sub optionally
+
 ###v1.1.0:
   * added `channel` and `pattern` to the message object, for easier querying.
 
@@ -58,10 +64,11 @@ Supports message filtering and more.
 
 ```javascript
   // listener only
-  var Sub = (new redisPubSub).Sub()
+  // in 'simple' mode
+  var Sub = (new redisPubSub('simple')).Sub()
 
   // emiter only
-  var Pub = (new redisPubSub).Pub()
+  var Pub = (new redisPubSub()).Pub()
 
   // instance can be a Publisher and Subscriber (emit and listen)
   // simply chain the above methods.
@@ -81,18 +88,31 @@ Supports message filtering and more.
 ---
 ### Set up a listener
 
+####in Query mode (default)
+
 ```javascript
   var sub = PubSub.on(query, filter, callback = function (data, channel, pattern) {
     // process your data here
   })
 ```
-
   * __query__: query to filter messages. Supports mongoDB-like queries and regular expressions.
-  TODO: queries description
   * __filter__: filter returned data by displaying only selected keys
   * __callback__: function to process returned `data` sent on a specific `channel` and captured by a listener `pattern`
 
-  Function returns reference to subscription.
+
+####in Simple mode
+  ```javascript
+  var sub = PubSub.on(channel, callback = function (data, channel, pattern) {
+    // process your data here
+  })
+```
+
+  * __channel__: channel name or pattern e. g. `drain.pipe` or `drain.*`.
+  * __callback__: function to process returned `data` sent on a specific `channel` and captured by a listener `pattern`
+
+
+#####Function returns reference to subscription.
+
 
 ---
 ### Disable a listener

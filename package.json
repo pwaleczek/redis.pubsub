@@ -1,6 +1,6 @@
 {
   "name": "redis.pubsub",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "A Redis Publish-Subscribe wrapper, with message queries",
   "main": "lib/redis-pub-sub",
   "scripts": {
@@ -30,7 +30,7 @@
     "hiredis": "~0.1.15"
   },
   "devDependencies": {
-    "mocha": "~1.12.0",
+    "mocha": "~1.12.1",
     "should": "~1.2.2"
   },
   "directories": {

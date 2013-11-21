@@ -97,6 +97,25 @@ describe('Redis Pub/Sub', function () {
 
   })
 
+  it('should use more complex filters of message body', function(done) {
+    var channelName = 'spec.test'
+      , messageObject = [
+            { key: 'test message' }
+          , { age: 10, key: 'other message' }
+          , { age: 21, key: 'none'}
+        ]
+      , channelNameTwo = 'spec.not_test'
+
+    var sub = PubSub.on({ channel: { $not: 'spec.test' } }, {}, function (data) {
+      data.should.be.instanceof(Object)
+      data.key.should.eql('other channel')
+
+      sub(done())
+    })
+    PubSub.emit(channelName, messageObject)
+    PubSub.emit(channelNameTwo, { key: 'other channel' })
+  })
+
   it('should unsubscribe from a query', function (done) {
     var sub = PubSub.on({}, {}, function (data) {
       // no need to process
