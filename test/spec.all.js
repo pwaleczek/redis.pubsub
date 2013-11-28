@@ -6,8 +6,7 @@ describe('Redis Pub/Sub', function () {
 
   it('should create an instance', function (done) {
 
-    PubSub = (new redisPubSub()).Pub().Sub()
-
+    PubSub = new redisPubSub()
     if (PubSub instanceof redisPubSub)
       done()
   })

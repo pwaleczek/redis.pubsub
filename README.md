@@ -3,9 +3,12 @@
 Node.js wrapper for Redis' Publish - Subscribe messageing pattern.
 Supports message filtering and more.
 
-  > Tested with node 0.10.15
+  > Tested with node 0.10.x
 
 ##Changelog
+
+###v2.0.0:
+  * reoved chaining
 
 ###v1.1.2:
   * removed pattern from final message object
@@ -63,16 +66,11 @@ Supports message filtering and more.
 ### Create an instance
 
 ```javascript
-  // listener only
-  // in 'simple' mode
-  var Sub = (new redisPubSub('simple')).Sub()
+  // in Simple mode
+  var PubSub = new redisPubSub('simple'))
 
-  // emiter only
-  var Pub = (new redisPubSub()).Pub()
-
-  // instance can be a Publisher and Subscriber (emit and listen)
-  // simply chain the above methods.
-  var PubSub = (new redisPubSub).Pub().Sub()
+  // or Query mode
+  var PubSub = new redisPubSub()
 ```
 
 ---
