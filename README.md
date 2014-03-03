@@ -8,7 +8,7 @@ Supports message filtering and more.
 ##Changelog
 
 ###v2.0.0:
-  * reoved chaining
+  * removed chaining
 
 ###v1.1.2:
   * removed pattern from final message object
