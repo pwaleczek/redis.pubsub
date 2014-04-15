@@ -7,37 +7,37 @@ Supports message filtering and more.
 
 ##Changelog
 
-###v2.0.0:
-  * removed chaining
+__v2.0.0__
+>  * removed chaining
 
-###v1.1.2:
-  * removed pattern from final message object
+__v1.1.2__
+>  * removed pattern from final message object
 
-###v1.1.1:
-  * simple mode for using raw redis Pub/Sub optionally
+__v1.1.1__
+>  * simple mode for using raw redis Pub/Sub optionally
 
-###v1.1.0:
-  * added `channel` and `pattern` to the message object, for easier querying.
+__v1.1.0__
+>  * added `channel` and `pattern` to the message object, for easier querying.
 
-###v1.0.2:
-  * Fix - channel was not passed by the event callback
-  * TODO: add more proper tests and perform benchmarking
+__v1.0.2__
+>  * Fix - channel was not passed by the event callback
+>  * TODO: add more proper tests and perform benchmarking
 
-###v1.0.1:
-  * added channel and pattern info to be trnsfered along with data as extra parameters
+__v1.0.1__
+>  * added channel and pattern info to be trnsfered along with data as extra parameters
 
-###v1.0.0:
-  * correct version numbering and some fixes
+__v1.0.0__
+> * correct version numbering and some fixes
 
-###v0.1.6:
-  * arrays can now be processed with queries
+__v0.1.6__
+>  * arrays can now be processed with queries
 
-###v0.1.5: Notable changes since v0.1.0
-  * __New way to create instances__
-  * The __.on__ method takes different parameters
-  * Filtering messages is possible using mongoDB-like queries or regular expressions
+__v0.1.5__ Notable changes since v0.1.0
+>  * __New way to create instances__
+>  * The __.on__ method takes different parameters
+>  * Filtering messages is possible using mongoDB-like queries or regular expressions
 
-###v0.1.0: Initial forking release
+__v0.1.0__ Initial forking release
 
 ##Install
 
