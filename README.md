@@ -1,4 +1,4 @@
-# Redis.PubSub [![Build Status](https://travis-ci.org/pwaleczek/redis.pubsub.png)](https://travis-ci.org/pwaleczek/redis.pubsub) [![NPM version](https://badge.fury.io/js/redis.pubsub.png)](http://badge.fury.io/js/redis.pubsub)
+# Redis.PubSub [![Build Status](https://travis-ci.org/pwaleczek/redis.pubsub.png)](https://travis-ci.org/pwaleczek/redis.pubsub) [![NPM version](https://badge.fury.io/js/redis.pubsub.png)](http://badge.fury.io/js/redis.pubsub) [![Code Climate](https://codeclimate.com/github/pwaleczek/redis.pubsub.png)](https://codeclimate.com/github/pwaleczek/redis.pubsub)
 
 Node.js wrapper for Redis' Publish - Subscribe messageing pattern.
 Supports message filtering and more.
